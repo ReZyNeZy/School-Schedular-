@@ -1,0 +1,68 @@
+<%
+
+from bottle import request
+
+identify = request.forms.get("identify")
+
+display = c.execute("SELECT * FROM Grades WHERE id = ?",(identify, ))
+
+for record in display:
+
+    subject = record[1]
+    homework = record[2]
+    exams = record[3]
+    final = record[4]
+    weighted = record[5]
+end
+
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Confirm </title>
+
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Delete Class </h1>
+
+        <button type = "button"
+                onclick = "document.location.href = '/mainPage'">
+
+            Return to Menu
+
+        </button>
+
+        <form action = "deleteGradeB"
+              method = "post"/>
+
+            <h2>Are you sure?</h2>
+
+            <input type = "hidden"
+                   name = "identify"
+                   value = "{{identify}}" />
+
+            <input type = "hidden"
+                   name = "subject"
+                   value = "{{subject}}" />
+
+            <button type = "submit">
+
+                Confirm
+
+            </button>
+
+
+        </form>
+
+    </body>
+
+
+
+
+</html>

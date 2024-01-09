@@ -1,0 +1,173 @@
+<%
+
+from bottle import request, response
+
+legitUser = request.get_cookie("legitUser")
+
+%>
+
+
+
+
+
+
+<html>
+
+    <head>
+
+        <title>Main Page</title>
+        <meta charset = "UTF-8">
+        <style type = "text/css">
+
+        h1{ text-align: center;
+            text-decoration: underline;}
+
+         button{
+
+                width: 800px;
+                margin: auto;
+                background-color: lightgrey;
+                display: grid;
+                padding: 18px 2px;
+                grid-template-columns: 1fr;
+            }
+
+
+            .button1 {
+
+                background-color: green;
+                text-align: center;
+                color: white;
+
+            }
+
+            .button2{
+
+                background-color: red;
+                text-align: center;
+                color: white;
+
+            }
+
+            .button3{
+
+                background-color: blue;
+                text-align: center;
+                color: white;
+
+            }
+
+            .button4{
+
+                background-color: lightgrey;
+                text-align: center;
+
+
+            }
+
+            .button5{
+
+                background-color: purple;
+                text-align: center;
+                color: white;
+
+            }
+
+            .button6{
+                background-color: black;
+                color: white;
+                text-align: center;
+            }
+
+
+
+        </style>
+
+        </head>
+
+
+<body>
+
+
+
+%if legitUser == "true":
+
+            <h1> School Scheduler and Grade Calculator</h1>
+
+            <button class = "button1"
+            type= "button"
+            onclick = 'document.location.href = "/schedit"'>
+
+        Edit Schedule
+
+    </button>
+
+    <button
+
+    <button class = "button2"
+            type= "button"
+            onclick = 'document.location.href = "/viewSched"'>
+
+        View Schedule
+
+    </button>
+
+    <button class= "button3"
+            type= "button"
+            onclick = 'document.location.href = "/viewGrades"'>
+
+        View Grades
+
+    </button>
+
+    <button class= "button5"
+            type = "button"
+            onclick = 'document.location.href = "/weightgrades"'>
+
+        Calculate Grades
+
+    </button>
+
+    <button type = "button4"
+            onclick = 'document.location.href = "/deleteGrade"'>
+
+        Delete Grade
+
+    </button>
+
+    <button class="button6"
+            type = "button"
+            onclick = "document.location.href = '/logout'">
+
+        Log Out
+
+    </button>
+
+        %else:
+            <h1> You are not logged in, please log in to continue </h1>
+
+            <button type = "button"
+                    onclick = "document.location.href = '/login'">
+
+                To Log in
+
+            </button>
+
+        %end
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

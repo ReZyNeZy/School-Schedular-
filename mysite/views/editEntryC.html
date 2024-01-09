@@ -1,0 +1,65 @@
+<%
+
+from bottle import request
+
+#pass all my variables and boxes
+
+identify = request.forms.get("identify")
+subject = request.forms.get("subject")
+time =  request.forms.get("time")
+days = request.forms.get("days")
+location = request.forms.get("location")
+
+#length requirement go brr
+
+subject = subject[:20]
+time = time[:20]
+days = days[:20]
+location = location[:20]
+
+#prompt sql to update and set values
+
+sql = """
+
+
+
+UPDATE Schedule
+SET
+
+class = ?,
+time = ?,
+days = ?,
+location = ?
+
+WHERE
+    id = ? """
+
+    c.execute(sql, (subject, time, days, location, identify,))
+
+db.commit()
+
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Edit Entry </title>
+        <meta charset = "utf-8"/>
+
+        <body>
+
+            <h1> Entry Updated Successfully </h1>
+
+            <button type= "button"
+                    onclick = "document.location.href = '/schedit'">
+
+                Return to Menu
+
+            </button>
+
+        </body>
+
+    </head>
+
+</html>

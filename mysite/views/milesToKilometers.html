@@ -1,0 +1,77 @@
+<html lang = "en-us">
+
+    <head>
+
+        <title> Miles to Kilometers</title>
+        <meta charset = "UTF-8">
+        <style type = "text/css">
+
+            form{
+                width: 800px;
+                margin: auto;
+                background-color: lightgrey;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            label{
+
+                grid-column: 1/3;
+                text-align: center;
+
+            }
+
+            input{
+
+                grid-column: 1/3;
+
+
+            }
+
+            button{
+
+                grid-column: 1/3;
+
+            }
+
+            h1{
+
+                text-align: center;
+                text-decoration: underline;
+
+            }
+
+
+
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <h1> Miles to Kilometers </h1>
+
+        <button type = "button"
+                onclick = 'document.location.href = "/kToM"'>
+
+                Kilometers to Miles
+                </button>
+
+        <form action = "/convertMtoK"
+              method = "post">
+
+                <label>Miles</label>
+                <input type = "number"
+                       name = "miles"/>
+
+                <button type "submit">
+
+                    submit
+                </button>
+        </form>
+
+    </body>
+
+</html>

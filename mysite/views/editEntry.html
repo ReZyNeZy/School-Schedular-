@@ -1,0 +1,57 @@
+<%
+
+#python code
+
+display = c.execute("SELECT ID, class FROM Schedule")
+
+%>
+
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Edit Class </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Select Class to Edit </h1>
+
+        <button type = "button"
+                onclick = 'document.location.href = "/schedit"'>
+
+               Go Back
+
+        </button>
+
+        <form action = "editEntryB"
+              method = "post"/>
+
+              <select name = "identify">
+
+                  %for record in display:
+
+                    <option value = "{{record[0]}}">{{record[1]}}</option>
+
+                    %end
+
+              </select>
+
+</br>
+
+
+              <button type = "submit">
+
+                  Enter
+
+              </button>
+
+</form>
+
+    </body>
+
+</html>

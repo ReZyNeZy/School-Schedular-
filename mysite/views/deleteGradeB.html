@@ -1,0 +1,35 @@
+<%
+
+from bottle import request
+
+identify = request.forms.get("identify")
+
+c.execute("DELETE FROM Grades WHERE id = ?", (identify))
+
+db.commit()
+
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Delete Grade </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Grade Successfully Deleted</h1>
+
+        <button type = "button"
+                onclick = "document.location.href = '/mainPage'">
+
+                Return to menu
+
+        </button>
+
+    </body>
+
+</html>

@@ -1,0 +1,126 @@
+<%
+from bottle import request
+
+
+homeworkS = request.forms.get("homework")
+homeworkS = float(homeworkS)
+
+examS = request.forms.get("exams")
+examS = float(examS)
+
+finalS = request.forms.get("final")
+finalS = float(finalS)
+
+
+
+
+homeworkP = request.forms.get("homework")
+homeworkP = float(homeworkP)
+
+homeworkW = request.forms.get("homeworkW")
+homeworkW = float(homeworkW)
+homeworkW = homeworkW/100
+
+examP = request.forms.get("exams")
+examP = float(examP)
+
+examW = request.forms.get("examW")
+examW = float(examW)
+examW = examW/100
+
+finalP = request.forms.get("final")
+finalP = float(finalP)
+
+finalW = request.forms.get("finalW")
+finalW = float(finalW)
+finalW = finalW/100
+
+
+
+homework = homeworkP * homeworkW
+hwOut = "{:.2f}".format(homework)
+
+exam = examP * examW
+examOut = "{:.2f}".format(exam)
+
+final = finalP * finalW
+finalOut = "{:.2f}".format(final)
+
+
+WeightedGrade = homework + exam + final
+
+out = "{:.2f}".format(WeightedGrade)
+
+
+%>
+
+
+
+
+
+
+
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title>Weighted Grade Result</title>
+
+    </head>
+
+    <body>
+
+        <h1> Your Final Grade</h1>
+
+        <form action = "/saveGrades"
+              method = "post">
+
+            <label> Homework Grade</label>
+            <label> {{homeworkS}} </label>
+            <input  type = "hidden"
+                    name = "homework"
+                    value = "{{homeworkS}}"/>
+                    <p> Homework Weight: {{hwOut}} </p>
+                    </br>
+
+            <label> Homework Grade</label>
+            <label> {{examS}} </label>
+            <input  type = "hidden"
+                    name = "exam"
+                    value = "{{examS}}"/>
+                    <p> Exam Weight: {{examOut}} </p>
+                    </br>
+
+            <label> Final Grade</label>
+            <label> {{finalS}} </label>
+            <input  type = "hidden"
+                    name = "final"
+                    value = "{{finalS}}"/>
+                    <p> Final Weight: {{finalOut}} </p>
+                    </br>
+
+                    <h2> Your Weighted Grade: {{out}} </h2>
+            <input type = "hidden"
+                   name = "weighted"
+                   value = "{{out}}" />
+                    </br>
+
+
+            <button type = "button"
+                    onclick = 'document.location.href = "/mainPage"'>
+
+                Return to Schedule
+
+            </button>
+
+            <button type = "submit"> Save Grades to Menu</button>
+
+        </form>
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,80 @@
+<%
+
+from bottle import request
+
+identify = request.forms.get("identify")
+
+display = c.execute("SELECT * FROM Schedule WHERE id = ?",(identify, ))
+
+for record in display:
+
+    subject = record[1]
+    time = record[2]
+    days = record[3]
+    location = record[4]
+
+end
+
+%>
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Edit Entry </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Edit Entry </h1>
+
+        <button type = "button"
+                onclick = "document.location.href = '/schedit'">
+
+            Go Back
+
+        </button>
+
+        <form action = "editEntryC"
+              method = "post">
+
+            <input type = "hidden"
+                   name = "identify"
+                   value = "{{identify}}"/>
+
+            <label> Class </label>
+
+            <input type = "text"
+                   name = "subject"
+                   value = "{{subject}}" />
+
+            <label> Time </label>
+
+            <input type = "time"
+                   name = "time"
+                   value = "{{time}}" />
+
+            <label> Days </label>
+
+            <input type = "text"
+                   name = "days"
+                   value = "{{days}}" />
+
+            <label> Location </label>
+
+            <input type = "text"
+                   name = "location"
+                   value = "{{location}}" />
+
+            <button type = "submit"> Enter </button>
+
+
+        </form>
+
+    </body>
+
+
+</html>

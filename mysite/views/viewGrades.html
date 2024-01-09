@@ -1,0 +1,64 @@
+<%
+
+#display the grades
+
+
+
+display = c.execute("SELECT * FROM Grades")
+
+%>
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Your Grades </title>
+        <meta charset = "utf-8" />
+
+    </head>
+
+    <body>
+
+        <h1> Your Grades </h1>
+
+        <table>
+
+            <tr>
+
+                <th> ID </th>
+                <th> Class </th>
+                <th> Homework </th>
+                <th> Exams </th>
+                <th> Final Exam </th>
+                <th> Weighted Grade </th>
+
+            </tr>
+
+            %for record in display:
+
+            <tr>
+
+                <td> {{record[0]}} </td>
+                <td> {{record[1]}} </td>
+                <td> {{record[2]}} </td>
+                <td> {{record[3]}} </td>
+                <td> {{record[4]}} </td>
+                <td> {{record[5]}} </td>
+
+            </tr>
+            %end
+
+        </table>
+
+
+        <button type = "button"
+                onclick = "document.location.href = '/mainPage'">
+
+            Return to Menu
+
+        </button>
+
+    </body>
+
+</html>

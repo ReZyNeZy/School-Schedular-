@@ -1,0 +1,53 @@
+<%
+
+from bottle import request
+
+subject = request.forms.get("class")
+
+time = request.forms.get("time")
+
+days = request.forms.get("days")
+
+location = request.forms.get("location")
+
+#sql length enforcement
+
+subject = subject[:20]
+time = time[:20]
+days = days[:20]
+location = location[:20]
+
+#prevent sql "funny"
+
+c.execute("INSERT INTO Schedule VALUES(null, ?, ?, ?, ?)",(subject, time, days, location))
+
+db.commit()
+
+%>
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Add to Schedule</title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+
+        <h1> Successfully Added To Schedule</h1>
+
+        <button type = "button"
+                onclick = 'document.location.href = "/schedit"'>
+
+            Return to Menu
+
+        </button>
+
+    </body>
+
+
+</html>

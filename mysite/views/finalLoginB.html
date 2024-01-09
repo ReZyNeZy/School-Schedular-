@@ -1,0 +1,55 @@
+<%
+
+from bottle import request, response
+
+#get the secret sauce from previous form
+
+user = request.forms.get("user")
+
+password = request.forms.get("pass")
+
+#if secret sauce is wrong
+
+statement = "Incorrect Username or Password"
+
+#literally the secret sauce
+
+if user == "demo":
+    if password == "final":
+
+    legitUser=  response.set_cookie("legitUser", "true")
+
+    statement = "You are logged in. Press button to continue"
+
+    end
+end
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Sched Login </title>
+
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> {{statement}} </h1>
+
+    <button type = "button"
+            onclick = "document.location.href = '/schedStart'">
+
+        Return to Main
+
+    </button>
+
+    <button type = "button"
+                onclick = "document.location.href ='/login'">
+
+        Log In
+
+    </button>
+</html>

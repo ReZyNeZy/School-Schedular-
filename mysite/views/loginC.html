@@ -1,0 +1,46 @@
+<%
+
+from bottle import request, response
+
+legitUser = request.get_cookie("legitUser")
+
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> To Schedule </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        %if legitUser == "true":
+            <h1> Press Button to go to Scheduler </h1>
+
+            <button type = "button"
+                    onclick = "document.location.href = '/mainPage'">
+
+                To Scheduler
+
+            </button>
+
+        %else:
+            <h1> You are not logged in, please log in to continue </h1>
+
+            <button type = "button"
+                    onclick = "document.location.href = '/login'">
+
+                To Log in
+
+            </button>
+
+        %end
+
+
+
+    </body>
+
+</html>

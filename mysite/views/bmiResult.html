@@ -1,0 +1,85 @@
+<%
+
+from bottle import request
+
+weight = request.forms.get("weight")
+weight = float(weight)
+
+feet = request.forms.get("feet")
+feet = float(feet)
+feet = feet * 12
+
+
+inches = request.forms.get("inches")
+inches = float(inches)
+
+
+height = feet + inches
+
+out = (weight / (height *height)) * 703
+
+out = "{:.2f}".format(out)
+
+catagory = float(out)
+
+statement = ""
+
+if catagory < 18.5:
+
+    statement = "underweight"
+    end
+
+if 18.1 < catagory < 24.9:
+
+    statement = "normal"
+    end
+
+if 25 < catagory:
+
+    statement = "overweight"
+    end
+
+
+%>
+
+<!DOCTYPE HTML>
+
+<html lang = "en-us">
+
+    <head>
+        <title>Your BMI</title>
+        <meta charset = "UTF-8">
+        <style type = "text/css">
+
+          h1{
+              text-align: center;
+              text-decoration: underline;
+          }
+          h2{
+              text-align: center;
+              text-decoration: underline;
+          }
+          p{
+              text-align: center;
+          }
+        </style>
+
+    </head>
+    <body>
+
+       <h1>Your BMI is</h1>
+
+       <p>
+           {{out}}
+
+       </p>
+
+       <h2>You are</h2>
+
+       <p>
+           {{statement}}
+       </p>
+    </body>
+
+</html>
+

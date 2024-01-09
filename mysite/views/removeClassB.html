@@ -1,0 +1,35 @@
+<%
+
+from bottle import request
+
+identify = request.forms.get("identify")
+
+c.execute("DELETE FROM Schedule WHERE id = ?", (identify))
+
+db.commit()
+
+%>
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Delete Class </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Class Successfully Deleted</h1>
+
+        <button type = "button"
+                onclick = "document.location.href = '/schedit'">
+
+                Return to menu
+
+        </button>
+
+    </body>
+
+</html>

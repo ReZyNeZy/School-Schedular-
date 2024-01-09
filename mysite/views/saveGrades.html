@@ -1,0 +1,100 @@
+<%
+
+from bottle import request
+
+ homework = request.forms.get("homework")
+
+ exams = request.forms.get("exam")
+
+ final = request.forms.get("final")
+
+ weighted = request.forms.get("weighted")
+
+
+
+hwOut = "(.2f)".format(homework)
+
+examsOut = "(.2f)".format(exams)
+
+finalOut = "(.2f)".format(final)
+
+ %>
+
+
+ <html lang = "en-us">
+
+     <head>
+
+         <title>Grade Table</title>
+         <meta charset = "UTF-8"/>
+
+
+     </head>
+
+     <body>
+
+         <h1>Add Grades to Main Page</h1>
+
+         <button type = "button"
+                 onclick = 'document.location.href = "/mainPage"'>
+
+                Return to Schedule
+
+         </button>
+
+    <form action = "/saveGradesB"
+               method = "post">
+
+         <label> Homework Grade</label>
+            <label> {{homework}} </label>
+
+            <input type = "hidden"
+                   id = "Homework Input"
+                   name = "homework"
+                   value = "{{homework}}"/>
+</br>
+        <label> Exam Grade </label>
+            <label> {{exams}} </label>
+
+            <input type = "hidden"
+                   id = "Exam Input"
+                   name = "exam"
+                   value = "{{exams}}"/>
+</br>
+        <label> Final Grade </label>
+            <label> {{final}} </label>
+
+            <input type = "hidden"
+                   id = "Final Input"
+                   name = "final"
+                   value = "{{final}}"/>
+</br>
+        <label> Weighted Grade </label>
+            <label> {{weighted}} </label>
+
+            <input type = "hidden"
+                   id = "Weighted Grade"
+                   name = "weighted"
+                   value = "{{weighted}}"/>
+</br>
+
+
+             <label> What Class are these Grades for?</label>
+             <input type = "text"
+                    name = "class"/>
+
+             <button type = "submit">
+
+                 Save
+
+             </button>
+
+         </form>
+
+     </body>
+
+
+ </html>
+
+
+

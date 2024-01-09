@@ -1,0 +1,59 @@
+<%
+
+#python code
+
+display = c.execute("SELECT ID, class FROM Grades")
+
+%>
+
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Delete Grade </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Select Grade to Delete </h1>
+
+        <button type = "button"
+                onclick = 'document.location.href = "/mainPage"'>
+
+               Go Back
+
+        </button>
+
+        <form action = "confirmGrades"
+              method = "post"/>
+
+
+              <select name = "identify">
+
+                  %for record in display:
+                  <option value = "{{record[0]}}">
+
+                      {{record[1]}}
+
+                  </option>
+                  %end
+              </select>
+
+</br>
+
+
+
+              <button type = "submit">
+
+                  Enter
+
+              </button>
+</form>
+
+    </body>
+
+</html>

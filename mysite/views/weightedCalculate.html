@@ -1,0 +1,78 @@
+<html lang = "en-us">
+
+    <head>
+
+        <title>Weighted Grades</title>
+        <meta charset = "UTF-8"/>
+        <style type = "text/css">
+
+
+
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1> Weighted Grade Calculator</h1>
+
+        <p>This is intended to calculate individual class final grades.
+           All values must be given in whole number form for accurate results.</p>
+
+
+
+        <button type = "button"
+                onclick= 'document.location.href = "/mainPage"'>
+
+            Back
+
+        </button>
+
+        <form action = "/resultWeighted"
+              method = "post">
+
+            <label>Homework Grade</label>
+            <input class = "input1"
+                type = "number"
+                   id = "homework"
+                   name = "homework"
+                   />
+
+            <label>Homework Weight</label>
+            <input class = "input 2"
+                   type = "number"
+                   id = "homeworkW"
+                   name = "homeworkW"
+                   />
+</br>
+            <label>Quiz/Test Grade</label>
+            <input type = "number"
+                   id = "exams"
+                   name = "exams"
+                   />
+
+            <label>Quiz/Test Weight</label>
+            <input type = "number"
+                   id = "examW"
+                   name = "examW"
+                   />
+</br>
+            <label> Final Grade</label>
+            <input type = "number"
+                   id = "final"
+                   name = "final"
+
+            <label>Final Weight</label>
+            <input type = "number"
+                   id = "finalW"
+                   name = "finalW"
+                   />
+</br>
+            <button type = "submit"> Enter </button>
+
+
+        </form>
+    </body>
+</html>

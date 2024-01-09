@@ -1,0 +1,56 @@
+<%
+
+from bottle import request
+
+#Second pass of the grade percentages
+
+homework = request.forms.get("homework")
+
+exams = request.forms.get("exam")
+
+final = request.forms.get("final")
+
+weighted = request.forms.get("weighted")
+
+subject = request.forms.get("class")
+
+#sql length
+
+homework = homework[:20]
+exams = exams[:20]
+final = final[:20]
+weighted = weighted[:20]
+subject = subject[:20]
+
+#sql "funny" prevention
+
+c.execute("INSERT INTO Grades VALUES(null, ?, ?, ?, ?, ?)", (subject, homework, exams, final, weighted))
+
+db.commit()
+
+%>
+
+
+<html lang = "en-us">
+
+    <head>
+
+        <title> Add Grades </title>
+        <meta charset = "utf-8"/>
+
+    </head>
+
+    <body>
+
+        <h1> Added Grades to Table </h1>
+
+        <button type = "button"
+                onclick = 'document.location.href = "/mainPage"'>
+
+            Return to Menu
+
+        </button>
+
+    </body>
+
+</html>
