@@ -14,5 +14,38 @@ This file was created using pythonanywhere. Pythonanywhere provides free webhost
 
 While many frameworks exist to route sites, this program was designed with the framework of bottle. It is reccomended that this program be continued to run in bottle. If you wish to use a diffrent framework, it may be required to reformat files included. 
 
+Some setup is required if using pythonanywhere. Simply navigate to the web tab and set up your website. Select the bottle framework, or whatever framework you want to use. Your webpage will be allocated to you for 6 months before a refresh of the website is required.
+
 To run the program. locate the file titled 
+
       bottle_app.py
+
+
+ execute this file to start your website. 
+
+
+## How to Use
+
+### Login
+
+The bottle app file should show you which routes the program contains. Locate the login route and add this to the end of your url. The program will ask for a login. 
+
+      user: demo
+      pass: final
+
+ Cookies will work to chech if the username and password is correct. If correct, the page will prompt you to click a button to take you to the main menu. If false, the user will be prompted to return to the login page. 
+
+### Main Menu
+
+ Upon entering the menu. There should be options to 
+
+ 1. Log out
+ 2. View Grades
+ 3. View Schedule
+ 4. Calculate Grades
+
+
+
+
+
+
