@@ -48,6 +48,10 @@ The bottle app file should show you which routes the program contains. Locate th
 
 The Grade Calculator is used for calculating weighted grades. Input the grade catagories and assign them a weight. The program will calculate your final grades using simple math. Users can then choose to save these grades or delete them. If you save the grades, they automatically are put into the list of grades accessable throught the main menu.
 
+### Schedule Menu
+
+Upon accessing the schedule menu, users are prompted with a CRUD menu. Users can create new entries, edit existing entries, delete entries, and view entries as well as return to the main menu page.
+
 
 
 
